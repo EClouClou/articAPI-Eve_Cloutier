@@ -5,15 +5,18 @@ export default {
   ],
   theme: {
     colors: {
-      'nom': '#000000',
+      'red': '#b50938',
+      'grey-light': '#f8f8f8',
+      'grey': '#767676',
+      'grey-dark': '#333',
+      'offWhite': '#FDFCFA',
+      'black': '#1a1a1a',
 
     },
     fontFamily: {
-      'sans': ['nom', 'sans-serif'],
-      'heading': ['nom', 'sans-serif'],
+      'sans': ['Poppins', 'sans-serif']
     },
     extend: {},
   },
   plugins: [],
 }
-
