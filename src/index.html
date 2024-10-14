@@ -5,9 +5,46 @@
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script type="module" src="./assets/js/main.js" defer></script>
-    <title>Tailwind exemple</title>
+    <script type="module" src="https://kit.fontawesome.com/d0b4d9ccc9.js" crossorigin="anonymous" defer></script>
+    <title>artic API</title>
   </head>
-  <body>
-    <h1>TEST Tailwind exemple</h1>
+  <body class="bg-grey-light flex flex-col h-screen min-h-screen">
+    <header>
+      <div class=" bg-grey-dark">
+        <h1 class="text-[2rem] text-center md:text-left md:text-[3rem] lg:text-[4rem] text-offWhite font-semibold p-20 max-w-[1440px] m-auto">Art Institute of Chicago</h1>
+      </div>
+    </header>
+
+    <main class="flex-1">
+      <form class="search-form flex flex-col gap-6 p-6 md:p-20 max-w-[1440px] m-auto">
+          <label for="input-query"><h2 class="text-xl font-semibold text-black">Effectuez une recherche parmis notre collection d'œuvres d'art</h2></label>
+          <div class="input-wrapper flex-col flex md:flex-row gap-3">
+            <input class="input-query border border-red p-3" id="input-query" type="text" placeholder="Entrez un mot-clé ici"/>
+            <button class="btn-search font-semibold text-offWhite uppercase bg-red border border-red hover:bg-grey hover:border-black p-3" type="button">rechercher</button>
+          </div>
+        </form>
+
+        <div class="cards-wrapper max-w-[1440px] m-auto pb-20">
+          <p class="result p-4"></p>
+        </div>
+
+        <div class="overlay hidden bg-[rgba(0,0,0,0.5)] fixed inset-0 flex justify-center items-center">
+          <div class="w-full max-w-[90vw] md:max-w-[80vw] max-h-[90vh] md:max-h-[80vh] lg:max-w-screen-lg bg-offWhite border border-black overflow-y-auto shadow-xl">
+            <div class="modal--close text-right sticky top-0 bg-red"><i class="fa-solid fa-xmark text-xl text-offWhite p-4"></i></div>
+            <div class="modal flex flex-col p-4">
+            </div>
+          </div>
+        </div>
+    </main>
+
+    <footer class="bg-grey-dark">
+      <div class="text-offWhite px-20 py-10 max-w-[1440px] m-auto flex flex-col md:flex-row justify-center md:justify-between text-center">
+        <p>Eve Cloutier</p>
+        <div class="flex flex-col md:flex-row md:gap-10">
+          <p><i class="fa-solid fa-pencil pe-3"></i>Examen</p>
+          <p><time datetime="2024-10-17">17 octobre 2024</time></p>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>
