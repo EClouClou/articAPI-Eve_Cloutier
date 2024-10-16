@@ -3,7 +3,6 @@ import '../css/style.css';
 const inputQueryHtml = document.querySelector('#input-query');
 const btnSearchHtml = document.querySelector('.btn-search');
 const cardsWrapperHtml = document.querySelector('.cards-wrapper');
-const noResult = document.querySelector('.no-result');
 const overlay = document.querySelector('.overlay');
 const modal = document.querySelector('.modal');
 const modalClose = document.querySelector('.modal--close');
