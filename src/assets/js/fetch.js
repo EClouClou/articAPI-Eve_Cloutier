@@ -8,41 +8,34 @@ const modal = document.querySelector('.modal');
 const modalClose = document.querySelector('.modal--close');
 
 modalClose.addEventListener('click', () => {
-    modal.innerHTML = ''; // Nettoye les résultats précédents
+    modal.innerHTML = '';
     overlay.classList.add('hidden');
 })
-let currentQuery = ''; // pour stocker la requête actuelle
+let currentQuery = '';
 
-// Fonction pour effectuer la recherche avec une URL
 function performSearch(url) {
     fetch(url)
         .then(response => response.json())
         .then(data => {
-            cardsWrapperHtml.innerHTML = ''; // Nettoye les résultats précédents
+            cardsWrapperHtml.innerHTML = '';
 
-
-            // Boucle à travers les résultats et créer un card pour chaque oeuvre
             data.data.forEach(result => {
 
-                // Création de la card (div)
                 cardsWrapperHtml.classList.add('grid', 'grid-cols-1', 'md:grid-cols-2', 'lg:grid-cols-3', 'gap-6', 'px-6', 'md:px-20');
                 const card = document.createElement('div');
                 card.classList.add('card', 'border', 'border-black', 'p-4', 'bg-white', 'flex', 'flex-col', 'justify-between', 'gap-3');
                 
-                // Ajout de l'image
                 const img = document.createElement('img');
                 img.src = `https://www.artic.edu/iiif/2/${result.image_id}/full/843,/0/default.jpg`;
                 img.alt = result.title;
                 img.classList.add('h-40', 'w-full', 'object-cover', 'mb-3');
                 card.appendChild(img);
-            
-                // Ajout du titre
+                
                 const title = document.createElement('h3');
                 title.textContent = `${result.title}`;
                 title.classList.add('text-xl', 'font-bold',);
                 card.appendChild(title);
-            
-                // Ajout du bouton pour voir les détails
+
                 const button = document.createElement('button');
                 button.textContent = 'Voir les détails';
                 button.type = button;
@@ -58,8 +51,6 @@ function performSearch(url) {
                         const formattedMaterial = Array.isArray(data.data.material_titles) ? data.data.material_titles.join(', ').replace(/,/g, ', ') : 'Non disponible';
                         const description = data.data.description ? data.data.description : 'S.O.';
 
-
-                        // ajout des datas demandées ici
                         modal.innerHTML = `
                         <div class="grid gap-3">
                             <div class="flex flex-col gap-3">
@@ -73,7 +64,7 @@ function performSearch(url) {
                                         <p class="pb-4 text-wrap"><span class="font-semibold">Matériel utilisé :</span> ${formattedMaterial}</p>
                                     </div>
                                 </div>
-                                    <div class="flex flex-col"> <p><span class="font-semibold">Description :</span> ${description}</p>
+                                    <div class="flex flex-col"><p><span class="font-semibold">Description :</span> ${description}</p>
                                     </div>
                             </div>
                         </div>
@@ -81,22 +72,18 @@ function performSearch(url) {
                     })
                 })
 
-
                 card.appendChild(button);
             
-                // Ajout de la carte au conteneur cardsWrapperHtml
                 cardsWrapperHtml.appendChild(card);
             });
         });
 }
 
-// Lance la recherche
 btnSearchHtml.addEventListener('click', (e) => {
     e.preventDefault();
     currentQuery = inputQueryHtml.value.trim();
     if (!currentQuery) {
-        alert('Veuillez entrer un mot-clé dans le champ de recherche.');
-    return;
+        alert('Veuillez entrer un mot-clé dans le champ de recherche.');        return;
     }
     const searchUrl = `https://api.artic.edu/api/v1/artworks/search?q=${currentQuery}&fields=id,title,image_id,artist_display,date_display,api_link`;
     performSearch(searchUrl);

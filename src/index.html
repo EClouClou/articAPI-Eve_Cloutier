@@ -7,6 +7,7 @@
     <script type="module" src="https://kit.fontawesome.com/d0b4d9ccc9.js" crossorigin="anonymous" defer></script>
     <title>artic API</title>
   </head>
+
   <body class="bg-grey-light flex flex-col h-screen min-h-screen">
     <header>
       <div class=" bg-grey-dark">
@@ -16,17 +17,15 @@
 
     <main class="flex-1">
       <form class="search-form flex flex-col gap-6 p-6 md:p-20 max-w-[1440px] m-auto">
-          <label for="input-query"><h2 class="text-xl font-semibold text-black">Effectuez une recherche parmis notre collection d'œuvres d'art</h2></label>
-          <div class="input-wrapper flex-col flex md:flex-row gap-3">
-            <input class="input-query border border-red p-3" id="input-query" type="text" placeholder="Entrez un mot-clé ici"/>
-            <button class="btn-search font-semibold text-offWhite uppercase bg-red border border-red hover:bg-grey hover:border-black p-3" type="button">rechercher</button>
-          </div>
-        </form>
-
+        <label for="input-query"><h2 class="text-xl font-semibold text-black">Effectuez une recherche parmis notre collection d'œuvres d'art</h2></label>
+        <div class="input-wrapper flex-col flex md:flex-row gap-3">
+          <input class="input-query border border-red p-3" id="input-query" type="text" placeholder="Entrez un mot-clé ici"/>
+          <button class="btn-search font-semibold text-offWhite uppercase bg-red border border-red hover:bg-grey hover:border-black p-3" type="button">rechercher</button>
+        </div>
+      </form>
         <div class="cards-wrapper max-w-[1440px] m-auto pb-20">
           <p class="result p-4"></p>
         </div>
-
         <div class="overlay hidden bg-[rgba(0,0,0,0.5)] fixed inset-0 flex justify-center items-center">
           <div class="w-full max-w-[90vw] md:max-w-[80vw] max-h-[90vh] md:max-h-[80vh] lg:max-w-screen-lg bg-offWhite border border-black overflow-y-auto shadow-xl">
             <div class="modal--close text-right sticky top-0 bg-red"><i class="fa-solid fa-xmark text-xl text-offWhite p-4"></i></div>
