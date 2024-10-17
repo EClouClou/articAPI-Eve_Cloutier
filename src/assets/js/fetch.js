@@ -87,18 +87,9 @@ btnSearchHtml.addEventListener('click', (e) => {
         alert('Veuillez entrer un mot-clé dans le champ de recherche.');        return;
     }
 
-
     searchWords.push(currentQuery);
 
     localStorage.setItem('search-words', JSON.stringify(searchWords));
-
-    const liHtml = document.createElement('li');
-
-    for (let i = start; i < searchWords.length; i++) {
-        addListContent(searchWords[i]);
-    }
-
-    searchWords.textContent 
     const searchUrl = `https://api.artic.edu/api/v1/artworks/search?q=${currentQuery}&fields=id,title,image_id,artist_display,date_display,api_link`;
     performSearch(searchUrl);
 });
